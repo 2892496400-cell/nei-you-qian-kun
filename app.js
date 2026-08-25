@@ -29,12 +29,6 @@ $('#togglePassword').addEventListener('click', () => {
   input.type = input.type === 'password' ? 'text' : 'password';
 });
 
-const dialog = $('#settingsDialog');
-$('#settingsTrigger').addEventListener('click', () => {
-  dialog.showModal();
-});
-$('#closeSettings').addEventListener('click', () => dialog.close());
-
 loadGlobalPassword();
 setInterval(loadGlobalPassword, 20_000);
 
