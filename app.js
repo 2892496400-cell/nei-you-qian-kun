@@ -16,9 +16,8 @@ $('#loginForm').addEventListener('submit', (event) => {
   event.preventDefault();
   const password = $('#password').value.trim();
   if (password === globalPassword) {
-    $('#loginCard').classList.add('hidden');
-    $('#reveal').classList.remove('hidden');
-    error.textContent = '';
+    sessionStorage.setItem('neiYouQianKun.unlocked', 'true');
+    window.location.href = './reveal.html';
   } else {
     error.textContent = '答案似乎还差一点，再想想。';
     $('#password').animate([{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(0)'}], {duration:220});
@@ -28,12 +27,6 @@ $('#loginForm').addEventListener('submit', (event) => {
 $('#togglePassword').addEventListener('click', () => {
   const input = $('#password');
   input.type = input.type === 'password' ? 'text' : 'password';
-});
-
-$('#back').addEventListener('click', () => {
-  $('#reveal').classList.add('hidden');
-  $('#loginCard').classList.remove('hidden');
-  $('#password').value = '';
 });
 
 const dialog = $('#settingsDialog');
