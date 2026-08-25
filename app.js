@@ -43,3 +43,5 @@ $('#settingsTrigger').addEventListener('click', () => {
 $('#closeSettings').addEventListener('click', () => dialog.close());
 
 loadGlobalPassword();
+setInterval(loadGlobalPassword, 20_000);
+
