@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111225" />
+    <title>半句再见</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .card { width: min(500px, 100%); padding: 54px 50px 40px; }
+      h1 { font-size: 52px; }
+      .subline { font-size: 17px; margin: 12px 0 36px; }
+      label { font-size: 15px; margin: 20px 0 8px; }
+      input { height: 52px; font-size: 16px; }
+      .input-wrap input { font-size: 16px; }
+      .hint { font-size: 14px; line-height: 1.7; }
+      .enter { padding: 16px; font-size: 18px; letter-spacing: 2px; }
+      .settings-trigger { font-size: 14px; }
+      .reveal { width: min(1160px, 100%); min-height: 64vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 24px; }
+      .reveal h2 { margin: 12px 0 20px; font-size: clamp(88px, 17vw, 220px); line-height: 1.08; letter-spacing: .15em; text-indent: .15em; }
+      .reveal p:not(.reveal-kicker) { font-size: 18px; }
+      .reveal .line { width: 72px; margin-bottom: 28px; }
+      .back { margin: 22px auto 0; padding: 10px 24px; font-size: 15px; }
+      @media (max-width: 500px) { .reveal { min-height: 60vh; padding: 45px 12px; } .reveal h2 { font-size: clamp(68px, 18vw, 100px); } }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="stars" aria-hidden="true"></div>
+      <section class="card" id="loginCard" aria-labelledby="pageTitle">
+        <p class="eyebrow">A small secret, kept for you</p>
+        <h1 id="pageTitle">半句再见</h1>
+        <p class="subline">请输入答案，打开这一页。</p>
+        <form id="loginForm" novalidate>
+          <label for="account">账号</label>
+          <div class="input-wrap"><span class="input-icon">◌</span><input id="account" autocomplete="username" value="duobeihaiyang" readonly /></div>
+          <label for="password">密码</label>
+          <div class="input-wrap"><span class="input-icon">✦</span><input id="password" type="password" inputmode="numeric" autocomplete="current-password" placeholder="请输入 18 位数字" maxlength="18" required /><button class="eye" type="button" id="togglePassword" aria-label="显示密码">◐</button></div>
+          <p class="hint">提示：你毕业后我们三次见面的日期拼起来，共 18 位。</p>
+          <p class="error" id="error" aria-live="polite"></p>
+          <button class="enter" type="submit">打开 <span>→</span></button>
+        </form>
+        <button class="settings-trigger" id="settingsTrigger" type="button">如何修改密码</button>
+      </section>
+      <section class="reveal hidden" id="reveal" aria-live="polite">
+        <p class="reveal-kicker">答案正确</p>
+        <h2>内有乾坤</h2>
+        <div class="line"></div>
+        <p>藏在时光里的，都算数。</p>
+        <button class="back" id="back" type="button">返回</button>
+      </section>
+      <dialog id="settingsDialog">
+        <form id="settingsForm" method="dialog">
+          <button class="close" id="closeSettings" type="button" aria-label="关闭">×</button>
+          <p class="eyebrow">PASSWORD SETTINGS</p>
+          <h2>全网更新密码</h2>
+          <p class="dialog-copy">此网站从 GitHub 的 <code>password-config.json</code> 读取密码。修改该文件并提交后，所有访客刷新页面都会读取新的密码。</p>
+          <ol class="dialog-copy"><li>打开仓库中的 <code>password-config.json</code>。</li><li>点击编辑图标，将 <code>password</code> 后的值改为新密码。</li><li>点击 “Commit changes”。</li></ol>
+          <p class="local-note">GitHub Pages 通常约 1 分钟完成部署，随后全网同步。</p>
+        </form>
+      </dialog>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
