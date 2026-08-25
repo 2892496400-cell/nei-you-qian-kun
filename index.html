@@ -43,20 +43,9 @@
           <p class="error" id="error" aria-live="polite"></p>
           <button class="enter" type="submit">打开 <span>→</span></button>
         </form>
-        <button class="settings-trigger" id="settingsTrigger" type="button">如何修改密码</button>
       </section>
-      <dialog id="settingsDialog">
-        <form id="settingsForm" method="dialog">
-          <button class="close" id="closeSettings" type="button" aria-label="关闭">×</button>
-          <p class="eyebrow">PASSWORD SETTINGS</p>
-          <h2>全网更新密码</h2>
-          <p class="dialog-copy">此网站从 GitHub 的 <code>password-config.json</code> 读取密码。修改该文件并提交后，所有访客刷新页面都会读取新的密码。</p>
-          <ol class="dialog-copy"><li>打开仓库中的 <code>password-config.json</code>。</li><li>点击编辑图标，将 <code>password</code> 后的值改为新密码。</li><li>点击 “Commit changes”。</li></ol>
-          <p class="local-note">GitHub Pages 通常约 1 分钟完成部署，随后全网同步。</p>
-        </form>
-      </dialog>
     </main>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>
 
